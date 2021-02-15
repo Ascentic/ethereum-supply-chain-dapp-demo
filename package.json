@@ -1,0 +1,25 @@
+{
+  "name": "supply-chain-dapp",
+  "version": "1.0.0",
+  "description": "Supply Chian Dapp",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@truffle/contract": "^4.3.5",
+    "bootstrap": "^4.6.0",
+    "nodemon": "^1.17.3",
+    "truffle": "5.1.62"
+  },
+  "dependencies": {
+    "lite-server": "^2.6.1",
+    "web3": "^1.3.3"
+  }
+}

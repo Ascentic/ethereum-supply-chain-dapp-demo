@@ -1,0 +1,293 @@
+<html>
+    <title>DAPP</title>
+    <head>
+        <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+      
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Vaccine Supply Chain</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+          </nav>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#create-order">Create Order (C)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#view-order">View Order</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#quote-price">Quote Vaccice Price (M)</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#quote-transport">Quote Transport Price(T)</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#confirm-order">Confim Order By Customer (C)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#confirm-order-trasporter">Confim Order By Transporter (T)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#dispatch-order">Dispatch Order (M)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#update-tempreture">Update Tempreture (T)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#complete-order">Complete Order (T)</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#receive-order">Receive Order (C)</a>
+            </li>
+
+            
+          </ul>
+          <div >
+            <div class="alert alert-success" id="alt-success" role="alert">
+               
+              </div>
+              <div class="alert alert-danger" id="alt-danger" role="alert">
+                
+              </div>
+              <div class="alert alert-warning" id="alt-warning" role="alert">
+                
+              </div>
+          </div>
+     
+       <div class="tab-content" style="margin-top: 50px; margin-left: -50px; padding-left: -50px;">
+            <div id="create-order" class="container tab-pane active">
+                <div class="row" >
+                    <div class="col-lg-6">
+                        <form>
+                        
+                            <div class="form-group">
+                            <label for="co_no_of_vaccines">Number Of Vaccines</label>
+                            <input type="number" class="form-control" id="co_no_of_vaccines" >
+                            </div>
+                            <div class="form-group">
+                                <label for="co_lead_time">Order Lead Time (Hours)</label>
+                                <input type="number" class="form-control" id="co_lead_time" >
+                            </div>
+                            <div class="form-group">
+                                <label for="co_lead_time">Penalty on Late Delivery</label>
+                                <input type="number" maxlength="2" class="form-control" id="co_penalty_Rate" >
+                            </div>
+                        
+                            <button type="button" id="co_create" class="btn btn-primary">Submit</button>
+                        </form>
+                        
+                    </div>            
+                   
+                </div>
+            </div>
+            <div id="view-order" class="container tab-pane">
+                <div class="col-lg-6">
+                    <form>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="co_no_of_vaccines">Order Id</label>
+                                <input type="text" class="form-control orderId" id="vo_order_id" >
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="co_lead_time">Order Status</label>
+                                <input type="text" readonly class="form-control" id="vo_order_status" >
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="co_lead_time">Number of Vaccines</label>
+                                <input type="text" readonly class="form-control" id="vo_no_vaccines" >
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="co_lead_time">Order Lead Time (Hours)</label>
+                                <input type="text" readonly class="form-control" id="vo_lead_time" >
+                            </div>
+                        </div>
+                    <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="co_lead_time">Penalty on Late Delivery</label>
+                                <input type="text" readonly class="form-control" id="vo_penalty_Rate" >
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="co_lead_time">Customer</label>
+                                <input type="text" readonly class="form-control" id="vo_customer" >
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="co_lead_time">Producer</label>
+                                <input type="text" readonly class="form-control" id="vo_producer" >
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="co_lead_time">Transporter</label>
+                                <input type="text" readonly class="form-control" id="vo_trasporter" >
+                            </div>
+                    </div>
+                    <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="co_lead_time">Reccomended Tempreture</label>
+                                <input type="text" readonly class="form-control" id="vo_rec_temp" >
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="co_lead_time">Maximum Exeed Allowed</label>
+                                <input type="text" readonly class="form-control" id="vo_max_exeed" >
+                            </div>
+                    </div>
+                    
+                    <div class="row">
+                            <div class="form-group col-lg-4">
+                                <label for="co_lead_time">Vaccine Cost</label>
+                                <input type="text" readonly class="form-control" id="vo_max_vaccine_cost" >
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label for="co_lead_time">Transport Cost</label>
+                                <input type="text" readonly class="form-control" id="vo_transport_cost" >
+                            </div>
+                            <div class="form-group col-lg-4">
+                                <label for="co_lead_time">Total Order Value</label>
+                                <input type="text" readonly class="form-control" id="vo_total" >
+                            </div>
+                    </div>
+                        
+                    
+                    </form>
+                    
+                </div>   
+            </div>
+            <div id="quote-price" class="container tab-pane">
+                <div class="col-lg-6">
+                    <form>
+                    
+                        <div class="form-group">
+                        <label for="co_no_of_vaccines">Order Id</label>
+                        <input type="number" class="form-control orderId" id="qv_order_id" >
+                        </div>
+                        <div class="form-group">
+                            <label for="co_lead_time">Price</label>
+                            <input type="number" class="form-control" id="qv_price" >
+                        </div>
+                        <div class="form-group">
+                            <label for="co_lead_time">Reccomended Tempreture</label>
+                            <input type="number" maxlength="2" class="form-control" id="qv_rec_temp" >
+                        </div>
+                        <div class="form-group">
+                            <label for="co_lead_time">Maximum Exeed Count Allowed</label>
+                            <input type="number" maxlength="2" class="form-control" id="qv_max_allowed" >
+                        </div>
+                    
+                        <button type="button" id="qv_submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    
+                </div>
+            </div>
+            <div id="quote-transport" class="container tab-pane">
+                <div class="col-lg-6">
+                    <form>
+                    
+                        <div class="form-group">
+                        <label for="co_no_of_vaccines">Order Id</label>
+                        <input type="number" class="form-control orderId" id="qt_order_id" >
+                        </div>
+                        <div class="form-group">
+                            <label for="co_lead_time">Price</label>
+                            <input type="number" class="form-control" id="qt_price" >
+                        </div>
+                    
+                    
+                        <button type="button" id="qt_submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div id="confirm-order" class="container tab-pane">
+                <div class="col-lg-6">
+                    <form>
+                
+                        <div class="form-group">
+                        <label for="co_no_of_vaccines">Order Id</label>
+                        <input type="number" class="form-control orderId" id="cfo_order_id" >
+                        </div>
+                        <button type="button" id="cfo_submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div id="confirm-order-trasporter" class="container tab-pane">
+                <div class="col-lg-6">
+                    <form>
+                
+                        <div class="form-group">
+                        <label for="co_no_of_vaccines">Order Id</label>
+                        <input type="number" class="form-control orderId" id="cfot_order_id" >
+                        </div>
+                        <button type="button" id="cfot_submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div id="dispatch-order" class="container tab-pane">
+                <div class="col-lg-6">
+                    <form>
+                
+                        <div class="form-group">
+                        <label for="do_order_id">Order Id</label>
+                        <input type="number" class="form-control orderId" id="do_order_id" >
+                        </div>
+                        <button type="button" id="do_submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+           
+            <div id="update-tempreture" class="container tab-pane">
+                <div class="col-lg-6">
+                    <form>                            
+                        <div class="form-group">
+                            <label for="do_order_id">Order Id</label>
+                            <input type="number" class="form-control orderId" id="ut_order_id" >
+                        </div>
+                        <div class="form-group">
+                            <label for="do_order_id">Tempreture</label>
+                            <input type="number" class="form-control" id="ut_tempreture" >
+                        </div>
+                        <button type="button" id="ut_submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div id="complete-order" class="container tab-pane">
+                <div class="col-lg-6">
+                    <form>
+                
+                        <div class="form-group">
+                        <label for="do_order_id">Order Id</label>
+                        <input type="number" class="form-control orderId" id="cmt_order_id" >
+                        </div>
+                        <button type="button" id="cmt_submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div id="receive-order" class="container tab-pane">
+                <div class="col-lg-6">
+                    <form>                            
+                        <div class="form-group">
+                            <label for="do_order_id">Order Id</label>
+                            <input type="number" class="form-control orderId" id="rc_order_id" >
+                        </div>
+                    
+                        <button type="button" id="rc_submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+         
+       </div>
+
+    </body>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/@truffle/contract/dist/truffle-contract.js"></script>
+    <script src="vendor/web3/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+</html>
